@@ -1,0 +1,109 @@
+# ============================================================
+# Recreation360 .gitignore
+# Java + Maven + Docker + IntelliJ + Azure AKS
+# ============================================================
+
+# === Maven Build Output ===
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+.mvn/timing.properties
+dependency-reduced-pom.xml
+
+# === Logs ===
+*.log
+*.out
+*.err
+logs/
+log/
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+*.iws
+out/
+*.ipr
+*.swp
+
+# === VS Code ===
+.vscode/
+.history/
+.settings/
+.project
+.classpath
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# === Temporary Files ===
+*.tmp
+*.bak
+*.swp
+*.swo
+*.old
+
+# === Docker ===
+*.pid
+docker-compose.override.yml
+.env
+.dockerignore
+
+# === Kubernetes / AKS ===
+kubeconfig
+.kube/
+*.yaml~
+*.yml~
+*.crt
+*.key
+
+# === IntelliJ Output ===
+.idea/
+out/
+build/
+
+# === Azure CLI Cache ===
+.azure/
+azcopy*
+
+# === GitHub Workflow Cache ===
+.github/workflows/*.tmp
+.github/actions/cache/
+
+# === Environment Files (Secrets) ===
+.env.local
+.env.*.local
+.envrc
+secrets/
+credentials.json
+*.pem
+
+# === Java ===
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# === Backup Files ===
+*~
+*.bak
+*.old
+*.orig
+*.save
+
+# === Node (if you add a front-end later) ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Docs and Diagrams ===
+docs/screenshots/*.psd
+docs/screenshots/*.ai
+docs/screenshots/*.sketch
