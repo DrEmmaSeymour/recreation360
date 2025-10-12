@@ -7,8 +7,8 @@ on:
 
 env:
   REGISTRY_NAME: recreation360acr
-  CLUSTER_NAME: recreation360aks
-  CLUSTER_RG: recreation360rg
+  CLUSTER_NAME: recreation360-aks
+  CLUSTER_RG: recreation360-rg
   IMAGE_NAME: recreation360springboot
 
 jobs:
