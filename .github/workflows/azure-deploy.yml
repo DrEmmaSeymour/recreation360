@@ -6,9 +6,9 @@ on:
       - main
       
 env:
-  REGISTRY_NAME: ${{ secrets.ACR_NAME }}
-  CLUSTER_NAME: ${{ secrets.AKS_NAME }}
-  CLUSTER_RG:   ${{ secrets.AKS_RG }}
+  REGISTRY_NAME: recreation360acr
+  CLUSTER_NAME: recreation360-aks
+  CLUSTER_RG: recreation360-rg
   IMAGE_NAME: recreation360-springboot
 
 jobs:
