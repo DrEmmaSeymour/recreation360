@@ -36,10 +36,14 @@ jobs:
       - name: Verify Azure CLI login
         run: az account show
 
-      - name: Build and Push Docker image to ACR
-        run: |
-          echo "Building and pushing image to ACR..."
-          az acr build --registry $REGISTRY_NAME --image $IMAGE_NAME:latest .
+      - name: Build Docker image
+        run: docker build -t $REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest .
+
+      - name: Log in to ACR
+        run: az acr login --name $REGISTRY_NAME
+
+      - name: Push Docker image
+        run: docker push $REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest
 
       - name: Get AKS credentials
         run: |
