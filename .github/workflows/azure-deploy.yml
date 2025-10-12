@@ -29,9 +29,13 @@ jobs:
         run: mvn -B clean package -DskipTests
 
       - name: Log in to Azure
-        uses: azure/login@v2
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Verify Azure CLI login
+        run: |
+          az account show
 
       - name: Build and Push Docker image (ACR)
         run: az acr build --registry $ENV:REGISTRY_NAME --image $ENV:IMAGE_NAME:latest .
