@@ -43,6 +43,5 @@ jobs:
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
-"@
 
 Set-Content -Path ".github\workflows\azure-deploy.yml" -Value $workflow -NoNewline
