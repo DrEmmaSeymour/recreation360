@@ -1,15 +1,10 @@
-# Make the folders
-New-Item -ItemType Directory -Path ".github\workflows" -Force | Out-Null
-
-# Create the file with the workflow contents
-$workflow = @"
-name: Build and Deploy Spring Boot to AKS
+name: "Build and Deploy Spring Boot to AKS"
 
 on:
   push:
     branches:
       - main
-
+      
 env:
   REGISTRY_NAME: ${{ secrets.ACR_NAME }}
   CLUSTER_NAME: ${{ secrets.AKS_NAME }}
