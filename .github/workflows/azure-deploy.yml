@@ -1,15 +1,15 @@
-name: "Build and Deploy Spring Boot to AKS"
+name: Build and Deploy Spring Boot to AKS
 
 on:
   push:
     branches:
       - main
-      
+
 env:
   REGISTRY_NAME: recreation360acr
-  CLUSTER_NAME: recreation360-aks
-  CLUSTER_RG: recreation360-rg
-  IMAGE_NAME: recreation360-springboot
+  CLUSTER_NAME: recreation360aks
+  CLUSTER_RG: recreation360rg
+  IMAGE_NAME: recreation360springboot
 
 jobs:
   build-and-deploy:
@@ -32,16 +32,18 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      
-      - name: Verify Azure CLI login
-        run: |
-          az account show
 
-      - name: Build and Push Docker image (ACR)
-        run: az acr build --registry $ENV:REGISTRY_NAME --image $ENV:IMAGE_NAME:latest .
+      - name: Verify Azure CLI login
+        run: az account show
+
+      - name: Build and Push Docker image to ACR
+        run: |
+          echo "Building and pushing image to ACR..."
+          az acr build --registry $REGISTRY_NAME --image $IMAGE_NAME:latest .
 
       - name: Get AKS credentials
-        run: az aks get-credentials --resource-group $ENV:CLUSTER_RG --name $ENV:CLUSTER_NAME --overwrite-existing
+        run: |
+          az aks get-credentials --resource-group $CLUSTER_RG --name $CLUSTER_NAME --overwrite-existing
 
       - name: Deploy to AKS
         run: |
