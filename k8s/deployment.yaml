@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recreation360-app
+  labels:
+    app: recreation360-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recreation360-app
+  template:
+    metadata:
+      labels:
+        app: recreation360-app
+    spec:
+      containers:
+        - name: recreation360-container
+          image: recreation360acr.azurecr.io/recreation360-springboot:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
