@@ -1,4 +1,7 @@
 com\recreation360\controller\DbHealthController.class
 com\recreation360\TestConnection.class
 com\recreation360\controller\HelloController.class
+com\recreation360\controller\ParkController.class
+com\recreation360\repository\ParkRepository.class
 com\recreation360\Recreation360Application.class
+com\recreation360\model\Park.class
