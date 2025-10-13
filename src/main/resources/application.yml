@@ -1,0 +1,20 @@
+# ===============================
+# DATABASE CONFIGURATION
+# ===============================
+spring.datasource.url: jdbc:postgresql://recreation360db.postgres.database.azure.com:5432/recreation360?sslmode=require
+spring.datasource.username: dbadmin
+spring.datasource.password: 'StrongPass123$'
+spring.datasource.driver-class-name: org.postgresql.Driver
+
+# ===============================
+# JPA / HIBERNATE SETTINGS
+# ===============================
+spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto: update
+spring.jpa.show-sql: true
+
+# ===============================
+# SERVER CONFIG
+# ===============================
+server.port: 8080
+spring.application.name: recreation360

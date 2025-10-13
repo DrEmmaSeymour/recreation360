@@ -1,2 +1,4 @@
-com\recreation360\Recreation360Application.class
+com\recreation360\controller\DbHealthController.class
+com\recreation360\TestConnection.class
 com\recreation360\controller\HelloController.class
+com\recreation360\Recreation360Application.class

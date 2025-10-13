@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Recreation360Application {
     public static void main(String[] args) {
        SpringApplication.run(Recreation360Application.class, args);
-       System.out.println("Recreation360 Application");
         
     }
 }
