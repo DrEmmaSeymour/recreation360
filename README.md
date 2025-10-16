@@ -1,6 +1,6 @@
 # Recreation360 – Cloud-Native Modernization Demo
 
-Recreation360 is a full-stack modernization project that transforms a legacy monolithic recreation management system into a cloud-native microservices architecture using Spring Boot, Docker, Azure Kubernetes Service (AKS), and Azure Database for PostgreSQL Flexible Server.
+Recreation360 is a full-stack modernization project that transforms a legacy monolithic recreation management system into a cloud-native microservices architecture using Kafka, Spring Boot, Docker, Azure Kubernetes Service (AKS), and Azure Database for PostgreSQL Flexible Server.
 
 This demo illustrates how enterprises can migrate traditional systems to scalable, containerized deployments with full CI/CD automation via GitHub Actions.
 
@@ -11,7 +11,8 @@ This demo illustrates how enterprises can migrate traditional systems to scalabl
 The solution demonstrates a cloud-first modernization approach:
 
 - Spring Boot API Layer – containerized backend service  
-- PostgreSQL Flexible Server – managed database for persistence  
+- PostgreSQL Flexible Server – managed database for persistence
+- Kafka - Asynchronous messaging
 - Azure Kubernetes Service (AKS) – orchestrates containers  
 - Azure Container Registry (ACR) – hosts Docker images  
 - GitHub Actions – CI/CD integration pipeline for builds and deployments
