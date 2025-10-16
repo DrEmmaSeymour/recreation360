@@ -1,5 +1,6 @@
 package com.recreation360.controller;
 
+import com.recreation360.kafka.KafkaProducerService;
 import com.recreation360.model.Park;
 import com.recreation360.repository.ParkRepository;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,18 @@ import java.util.List;
 public class ParkController {
 
     private final ParkRepository repository;
+    private final KafkaProducerService producerService;
 
-    public ParkController(ParkRepository repository) {
+    public ParkController(ParkRepository repository, KafkaProducerService producerService) {
         this.repository = repository;
+        this.producerService = producerService;
+    }
+
+    @PostMapping
+    public Park create(@RequestBody Park park) {
+        Park saved = repository.save(park);
+        producerService.sendMessage("parks-topic", "New park created: " + saved.getName());
+        return saved;
     }
 
     // GET all
@@ -27,12 +37,6 @@ public class ParkController {
     @GetMapping("/{id}")
     public Park getOne(@PathVariable Long id) {
         return repository.findById(id).orElseThrow();
-    }
-
-    // POST new
-    @PostMapping
-    public Park create(@RequestBody Park park) {
-        return repository.save(park);
     }
 
     //  PUT update

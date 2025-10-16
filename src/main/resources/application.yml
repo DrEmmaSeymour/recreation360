@@ -18,3 +18,21 @@ spring.jpa.show-sql: true
 # ===============================
 server.port: 8080
 spring.application.name: recreation360
+
+# ===============================
+# KAFKA
+# ===============================
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    properties:
+      enable.auto.commit: false
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: recreation360-group
+      auto-offset-reset: earliest
+    listener:
+      missing-topics-fatal: false
+
